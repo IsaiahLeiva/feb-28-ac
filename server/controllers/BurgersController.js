@@ -15,7 +15,6 @@ export class BurgersController extends BaseController {
     async getAllBurgers(req, res, next) {
         try {
             const burgers = await burgersService.getAllBurgers()
-            //NOTE: explain line below
             return res.send(burgers)
         } catch (error) {
             next(error)
