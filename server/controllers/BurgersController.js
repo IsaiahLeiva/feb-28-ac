@@ -1,4 +1,5 @@
-import { BurgersService } from "../services/BurgersService"
+import { burgersService } from "../services/BurgersService"
+import BaseController from "../utils/BaseController"
 import { logger } from "../utils/Logger"
 
 
@@ -8,12 +9,12 @@ export class BurgersController extends BaseController {
         this.router
             .get('', this.getAllBurgers)
             .post('', this.createBurger)
-            .delete('/:burgerId', this.removeBurger)
+        // .delete('/:burgerId', this.removeBurger)
     }
 
     async getAllBurgers(req, res, next) {
         try {
-            const burgers = await BurgersService.getAllBurgers()
+            const burgers = await burgersService.getAllBurgers()
             //NOTE: explain line below
             return res.send(burgers)
         } catch (error) {
@@ -24,7 +25,7 @@ export class BurgersController extends BaseController {
     async createBurger(req, res, next) {
         try {
             logger.log(req.body)
-            const burger = await BurgersService.createBurger(req.body)
+            const burger = await burgersService.createBurger(req.body)
             return res.send(burger)
         } catch (error) {
             next(error)

@@ -7,7 +7,7 @@ class BurgersService {
         logger.log('burgerId form user', typeof burgerId)
         const index = dbContext.Burgers.findIndex(b => b.id.toString() === burgerId)
         if (index === -1) {
-            throw new Error('no burger at that id')
+            throw new Error('no boygah at that id')
         }
         dbContext.Burgers.splice(index, 1)
         return 'No burger fren'
@@ -25,4 +25,4 @@ class BurgersService {
     }
 }
 
-export const BurgersService = new BurgersService()
+export const burgersService = new BurgersService()
