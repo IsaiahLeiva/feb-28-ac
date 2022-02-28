@@ -1,4 +1,4 @@
-
+import { BurgersService } from "../services/BurgersService"
 
 
 export class BurgersController extends BaseController {
