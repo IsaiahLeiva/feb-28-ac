@@ -12,9 +12,21 @@ export class BurgersController extends BaseController {
 
     async getAllBurgers(req, res, next) {
         try {
-            const burgers = await bur
+            const burgers = await BurgersService.getAllBurgers()
+            //NOTE: explain line below
+            return res.send(burgers)
         } catch (error) {
+            next(error)
+        }
+    }
 
+    async createBurger(req, res, next) {
+        try {
+            logger.log(req.body)
+            const burger = await BurgersService.createBurger(req.body)
+            return res.send(burger)
+        } catch (error) {
+            next(error)
         }
     }
 
