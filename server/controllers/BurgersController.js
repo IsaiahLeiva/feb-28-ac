@@ -1,4 +1,5 @@
 import { BurgersService } from "../services/BurgersService"
+import { logger } from "../utils/Logger"
 
 
 export class BurgersController extends BaseController {
